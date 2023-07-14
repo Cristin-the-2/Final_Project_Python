@@ -36,6 +36,8 @@ def add():
 def show(text):
     logic = True
     array = file_operation.read_file()
+    if text == 'date':
+        input_date = input('Введите дату в формате dd.mm.yyyy: ')
     for notes in array:
         match text:
             case 'all': 
@@ -46,7 +48,6 @@ def show(text):
                 print('ID: ' + Note.Note.get_id(notes))
             case 'date':
                 logic = False
-                input_date = input('Введите дату в формате dd.mm.yyyy: ')
                 if input_date in Note.Note.get_date(notes):
                     print(Note.Note.map_note(notes))
     if logic == True:
